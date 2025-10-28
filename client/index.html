@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Messages</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+    <form id="message_form">
+        <label for="message_input_name">Predator Name</label>
+        <input id="message_input_name" type="text" required />
+        
+        <label for="message_input_description">Predator Description</label>
+        <textarea id="message_input_description" required></textarea>
+        
+        <label for="message_input_age">Predator Age</label>
+        <input id="message_input_age" type="number" min="0" required />
+        
+        <label for="message_input_kills">Kills</label>
+        <input id="message_input_kills" type="number" min="0" required/>
+        
+        <label>Predator Ranking</label>
+        <div class="Predator-Ranking">
+            
+            <input type="radio" id="star7" name="rank" value="Ancient" />
+            <label for="star7">Ancient (7)</label>
+            
+            <input type="radio" id="star6" name="rank" value="Elder" />
+            <label for="star6">Elder (6)</label>
+            
+            <input type="radio" id="star5" name="rank" value="Elite" />
+            <label for="star5">Elite (5)</label>
+            
+            <input type="radio" id="star4" name="rank" value="Blooded" />
+            <label for="star4">Blooded (4)</label>
+            
+            <input type="radio" id="star3" name="rank" value="Young Blood" />
+            <label for="star3">Young Blood (3)</label>
+            
+            <input type="radio" id="star2" name="rank" value="Unblooded" /> 
+            <label for="star2">Unblooded (2)</label>
+            
+            <input type="radio" id="star1" name="rank" value="Bad Blood" />
+            <label for="star1">Bad Blood (1)</label>
+        </div>
+        <button id="message_submit_button" type="button">Submit message</button>
+    </form>
+
+    <h2>Warriors</h2>
+    <div id="message_reviews"></div>
+
+    <script src="./app.js"></script>
+</body>
+</html>
