@@ -19,6 +19,11 @@ def dict_factory(cursor, row):
 
 class DB:
     def __init__(self, dbfilename):
+        try:
+            with open(dbfilename, 'x') as file:
+                pass
+        except FileExistsError:
+            pass
         self.dbfilename = dbfilename
         self.connection = sqlite3.connect(dbfilename)
         self.cursor = self.connection.cursor()

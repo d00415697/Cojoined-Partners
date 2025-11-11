@@ -13,13 +13,13 @@ def do_preflight(id):
 
 @app.route("/messages", methods=["GET"])
 def get_messages():
-    db = DB("messages.db")
+    db = DB("data/messages.db")
     messages = db.readAllRecords()
     return messages, {"Access-Control-Allow-Origin":"*"}
 
 @app.route("/messages/<int:id>", methods=["PUT"])
 def edit_message(id):
-    db = DB("messages.db")
+    db = DB("data/messages.db")
     print(request.form)
     d = {"name": request.form['name'],
          "description": request.form['description'],
@@ -33,13 +33,13 @@ def edit_message(id):
 @app.route("/messages/<int:id>", methods=["DELETE"])
 def delete_messages(id):
     print("Im deleting the trail: ", id)
-    db = DB("messages.db")
+    db = DB("data/messages.db")
     db.deleteRecord(id)
     return "Deleted", 200, {"Access-Control-Allow-Origin":"*"}
 
 @app.route("/messages", methods=["POST"])
 def create_message():
-    db = DB("messages.db")
+    db = DB("data/messages.db")
     print(request.form)
     d = {"name": request.form['name'],
          "description": request.form['description'],
