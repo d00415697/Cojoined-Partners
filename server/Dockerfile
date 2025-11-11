@@ -10,6 +10,8 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy application code
 COPY app.py db.py ./
 
+RUN touch messages.db && chmod 777 messages.db
+
 # Expose port (default Flask port, but configurable via env)
 EXPOSE 5000
 
