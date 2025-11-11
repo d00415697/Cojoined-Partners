@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: client
-          image: client:latest
+          image: pacethomson/client_predator:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 80

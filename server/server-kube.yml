@@ -25,13 +25,13 @@ spec:
     spec:
       containers:
         - name: server
-          image: server:latest
+          image: pacethomson/server_predator:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 5000
           volumeMounts:
             - name: database-storage
-              mountPath: /app
+              mountPath: /data/app
           env:
             - name: FLASK_RUN_HOST
               value: "0.0.0.0"
