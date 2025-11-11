@@ -22,6 +22,18 @@ class DB:
         self.dbfilename = dbfilename
         self.connection = sqlite3.connect(dbfilename)
         self.cursor = self.connection.cursor()
+        # Initialize table if it doesn't exist
+        self.cursor.execute("""
+            CREATE TABLE IF NOT EXISTS messages (
+                id INTEGER PRIMARY KEY,
+                name TEXT,
+                description TEXT,
+                age INTEGER,
+                rank TEXT,
+                kills INTEGER
+            )
+        """)
+        self.connection.commit()
         
     def readAllRecords(self):
         self.cursor.execute("SELECT * FROM messages")
