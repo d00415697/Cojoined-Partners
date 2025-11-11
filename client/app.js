@@ -1,5 +1,6 @@
 console.log("connected")
 
+
 let editID = null
 
 const message_div = document.querySelector("#message_reviews")
@@ -7,7 +8,7 @@ const message_div = document.querySelector("#message_reviews")
 function load(){
     message_div.innerHTML = ""
 
-    fetch("http://localhost:5000/messages")
+    fetch(`/messages`)
         .then(function(response){
             response.json()
                 .then(function(data){
@@ -70,10 +71,10 @@ function addNewmessage(){
 
     let submit_method = "POST"
     const button_text = document.querySelector("#message_submit_button").innerHTML
-    let url = "http://localhost:5000/messages"
+    let url = "/messages"
     if (button_text == "SAVE"){
         submit_method = "PUT"
-        url = "http://localhost:5000/messages/"+ editID
+        url = "/messages/"+ editID
     }
 
     fetch(url, {
@@ -99,7 +100,7 @@ function addNewmessage(){
 
 function delete_message(id){
     console.log("Deleting Predator: ", id)
-    fetch(`http://localhost:5000/messages/${id}`, { method: "DELETE" })
+    fetch(`/messages/${id}`, { method: "DELETE" })
 
         .then(function(response){
             if(response.status === 200){
