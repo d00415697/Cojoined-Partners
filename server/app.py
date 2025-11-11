@@ -71,9 +71,13 @@ def home():
     return "Im home."
 
 def main():
-    app.run()
+    import os
+    host = os.environ.get('FLASK_RUN_HOST', '0.0.0.0')
+    port = int(os.environ.get('FLASK_RUN_PORT', 5000))
+    app.run(host=host, port=port)
 
-main()
+if __name__ == "__main__":
+    main()
 
 # fix styles and change routes from "messages" to "messages"
 # going to use UPDATE trails SET name = 'name' WHERE id = 30;
