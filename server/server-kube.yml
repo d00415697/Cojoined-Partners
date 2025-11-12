@@ -47,9 +47,10 @@ kind: Service
 metadata:
   name: server
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: server
   ports:
     - port: 5000
       targetPort: 5000
+      nodePort: 30050
