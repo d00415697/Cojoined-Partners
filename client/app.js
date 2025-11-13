@@ -1,5 +1,7 @@
 console.log("connected")
 
+let API_URL = "http://144.38.201.38"
+
 
 let editID = null
 
@@ -8,7 +10,7 @@ const message_div = document.querySelector("#message_reviews")
 function load(){
     message_div.innerHTML = ""
 
-    fetch(`/messages`)
+    fetch(`${API_URL}/messages`)
         .then(function(response){
             response.json()
                 .then(function(data){
@@ -71,10 +73,10 @@ function addNewmessage(){
 
     let submit_method = "POST"
     const button_text = document.querySelector("#message_submit_button").innerHTML
-    let url = "/messages"
+    let url = `${API_URL}/messages`
     if (button_text == "SAVE"){
         submit_method = "PUT"
-        url = "/messages/"+ editID
+        url = `${API_URL}/messages/${editID}`
     }
 
     fetch(url, {
@@ -100,7 +102,7 @@ function addNewmessage(){
 
 function delete_message(id){
     console.log("Deleting Predator: ", id)
-    fetch(`/messages/${id}`, { method: "DELETE" })
+    fetch(`${API_URL}/messages/${id}`, { method: "DELETE" })
 
         .then(function(response){
             if(response.status === 200){
