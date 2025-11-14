@@ -87,7 +87,7 @@ function addNewmessage(){
         }
     })
     .then(function (response){
-            if(response.status === 201){
+            if(response.status === 200 || response.status === 201){
                 console.log("Saved")
                 document.querySelector("#message_form").reset()
                 load()
